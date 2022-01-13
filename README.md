@@ -1,2 +1,3 @@
 # coding-for-economists
-It's just a text file!
+It is a text file.
+
