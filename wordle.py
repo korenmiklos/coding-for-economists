@@ -15,13 +15,16 @@ def score_letter(letter, position, true_word):
 def score_word(guess, true_word):
     # >>> score_word('APPL', 'ABBA')
     # '*---'
-    # FIXME: check if words are the same length
-    N = len(true_word)
-    for position in range(N):
-        # FIXME: format string properly
-        print(position, guess[position], true_word[position], score_letter(guess[position], position, true_word))
+    if len(guess) != len(true_word):
+        return 'TWO WORDS ARE NOT OF SAME LENGTH.'
+    else:
+        N = len(true_word)
+        for position in range(N):
+            # FIXME: format string properly
+            print(position, guess[position], true_word[position], score_letter(guess[position], position, true_word))
 
 # FIXME: add function to read random word
 # FIXME: add function to get user guess
 
-score_word('APPL', 'ABBA')
+message = score_word('APPLE', 'ABBA')
+print(message)
