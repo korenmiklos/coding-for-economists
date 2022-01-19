@@ -23,8 +23,14 @@ def score_word(guess, true_word):
         score = score + score_letter(guess[position], position, true_word)
     return score
 
+def get_and_score_guess(true_word):
+    guess = input('Guess the word: ')
+    print(score_word(guess, true_word))
+
 # FIXME: add function to read random word
-# FIXME: add function to get user guess
 
 message = score_word('APPB', 'ABBA')
 print(message)
+# should be '*--o'
+
+get_and_score_guess('across')
