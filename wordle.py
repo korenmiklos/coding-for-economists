@@ -1,3 +1,5 @@
+from random import choice
+
 USER_PROMPT = 'Guess the word: '
 
 def score_letter(letter, position, true_word):
@@ -38,10 +40,10 @@ def loop_until_success(true_word):
         if score == 6 * '*':
             correct_guess = True
 
-# FIXME: add function to read random word
+def get_random_word(filename):
+    word_file = open(filename, 'r')
+    words = word_file.readlines()
+    return choice(words)
 
-message = score_word('APPB', 'ABBA')
-print(message)
-# should be '*--o'
-
-loop_until_success('across')
+word = get_random_word('data/words.txt')[0:6]
+print(word)
