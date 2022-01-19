@@ -46,4 +46,4 @@ def get_random_word(filename):
     return choice(words)
 
 word = get_random_word('data/words.txt')[0:6]
-print(word)
+loop_until_success(word)
