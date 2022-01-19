@@ -1,3 +1,5 @@
+USER_PROMPT = 'Guess the word: '
+
 def score_letter(letter, position, true_word):
     # >>> score_letter('A', 0, 'ABBA')
     # '*'
@@ -24,9 +26,9 @@ def score_word(guess, true_word):
     return score
 
 def get_and_score_guess(true_word):
-    guess = input('Guess the word: ')
+    guess = input(USER_PROMPT)
     score = score_word(guess, true_word)
-    print(score)
+    print(len(USER_PROMPT) * ' ' + score)
     return score
 
 def loop_until_success(true_word):
