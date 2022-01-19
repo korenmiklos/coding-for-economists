@@ -1,3 +1,4 @@
+
 def convert_feet_to_meters(distance_feet):
     return 0.3048 * distance_feet
 
@@ -23,9 +24,23 @@ if distance_meter > 10.0:
 else:
     print('Distance is not than great.')
 
-if False:
-    print('It is false.')
+i_am_lying = False
+if i_am_lying:
+    print('I am lying.')
 else:
-    print('it is not.')
+    print('I am telling the truth.')
 
 print(distance_meter > 10.0)
+
+distance_meter = 0
+if distance_meter:
+    # is the same as not distance_meter == 0.0
+    print('What is distance?')
+else:
+    print('Distance is', distance_meter)
+
+name = ' '
+if name:
+    # same as not name == ''
+    print(name)
+print('Name has been printed')
