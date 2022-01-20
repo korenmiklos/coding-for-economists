@@ -4,6 +4,7 @@ USER_PROMPT = 'Guess the word: '
 CORRECT_POSITION = '*'
 CORRECT_LETTER = 'o'
 INCORRECT_LETTER = '-'
+ERROR_MESSAGE = 'TWO WORDS ARE NOT OF SAME LENGTH.'
 
 def score_letter(letter, position, true_word):
     # >>> score_letter('A', 0, 'ABBA')
@@ -24,7 +25,7 @@ def score_word(guess, true_word):
     # >>> score_word('APPL', 'ABBA')
     # '*---'
     if len(guess) != len(true_word):
-        return 'TWO WORDS ARE NOT OF SAME LENGTH.'
+        return ERROR_MESSAGE
     score = ''
     N = len(true_word)
     for position in range(N):
@@ -45,13 +46,11 @@ def loop_until_success(true_word):
             correct_guess = True
 
 def get_random_word(filename):
-    # b/c we call the function on line 58, filename will have the value 'data/words.txt'
-    word_file = open(filename, 'r')
-    ## file reading
+    # b/c we call the function on line 55, filename will have the value 'data/words.txt'
+    word_file = open(filename, 'rt')
     words = word_file.readlines()
     return choice(words)
 
 #only constant and function definitions until now, execution starts here
-word = get_random_word('data/words.txt')[0:6]
+word = get_random_word('data/words.txt').strip()
 loop_until_success(word)
-# last comment
