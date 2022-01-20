@@ -1,6 +1,9 @@
 from random import choice
 
 USER_PROMPT = 'Guess the word: '
+CORRECT_POSITION = '*'
+CORRECT_LETTER = 'o'
+INCORRECT_LETTER = '-'
 
 def score_letter(letter, position, true_word):
     # >>> score_letter('A', 0, 'ABBA')
@@ -10,11 +13,11 @@ def score_letter(letter, position, true_word):
     # >>> score_letter('C', 0, 'ABBA')
     # '-'
     if (true_word[position] == letter):
-        return '*' # for correct position
+        return CORRECT_POSITION
     if (letter in true_word):
-        return 'o' # for correct letter, incorrect position
+        return CORRECT_LETTER
     else:
-        return '-'
+        return INCORRECT_LETTER
 
 def score_word(guess, true_word):
     # >>> score_word('APPL', 'ABBA')
@@ -37,7 +40,7 @@ def loop_until_success(true_word):
     correct_guess = False
     while not correct_guess:
         score = get_and_score_guess(true_word)
-        if score == 6 * '*':
+        if score == len(score) * CORRECT_POSITION:
             correct_guess = True
 
 def get_random_word(filename):
