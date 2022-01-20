@@ -14,6 +14,7 @@ def score_letter(letter, position, true_word):
     # '-'
     if (true_word[position] == letter):
         return CORRECT_POSITION
+    # discuss 'in'
     if (letter in true_word):
         return CORRECT_LETTER
     else:
@@ -44,10 +45,13 @@ def loop_until_success(true_word):
             correct_guess = True
 
 def get_random_word(filename):
+    # b/c we call the function on line 58, filename will have the value 'data/words.txt'
     word_file = open(filename, 'r')
+    ## file reading
     words = word_file.readlines()
     return choice(words)
 
+#only constant and function definitions until now, execution starts here
 word = get_random_word('data/words.txt')[0:6]
 loop_until_success(word)
 # last comment
