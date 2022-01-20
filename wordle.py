@@ -50,3 +50,4 @@ def get_random_word(filename):
 
 word = get_random_word('data/words.txt')[0:6]
 loop_until_success(word)
+# last comment
